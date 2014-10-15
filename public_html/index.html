@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery UI</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="js/libs/jqueryui/css/jquery-ui.min.css"> 
+        <style>
+            #text {
+                border: 1px solid gray;
+                width: 100px;
+            }
+            .box {
+                border: 1px solid gray;
+                width: 200px;
+                height: 200px;
+            }
+            .pink {
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="text">ドラッグしてください</div>
+        <div class="box">ここにドロップしてください</div>
+        <div class="box">ここにドロップしてください</div>
+        <div class="box">ここにドロップしてください</div>
+
+        <script src="js/libs/jquery/jquery.min.js"></script>
+        <script src="js/libs/jqueryui/jquery-ui.min.js"></script>
+        <script>
+            $(function() {
+                $("#text").draggable({
+                    start: function() {
+                        $(".box").removeClass("pink");
+                    }
+                });
+                $(".box").droppable({
+                    drop: function() {
+                        $(this).addClass("pink");
+                    }
+                });
+
+            });
+        </script>
+    </body>
+</html>
